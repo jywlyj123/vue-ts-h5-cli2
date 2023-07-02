@@ -2,14 +2,16 @@
  * @Author: Awei
  * @Date: 2023-06-30 19:23:29
  * @Last Modified by: Awei
- * @Last Modified time: 2023-06-30 19:36:14
+ * @Last Modified time: 2023-07-02 20:39:31
  */
 import 'vant/lib/index.css'
-import { Form, Field, CellGroup, NavBar } from 'vant'
+import { Form, Field, CellGroup, NavBar, Tabbar, TabbarItem } from 'vant'
 
 export const initVant = function (app: any) {
   app.use(Form)
   app.use(Field)
   app.use(CellGroup)
   app.use(NavBar)
+  app.use(Tabbar)
+  app.use(TabbarItem)
 }

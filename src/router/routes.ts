@@ -2,7 +2,7 @@
  * @Author: Awei
  * @Date: 2023-06-29 08:48:22
  * @Last Modified by: Awei
- * @Last Modified time: 2023-07-02 20:25:26
+ * @Last Modified time: 2023-07-02 21:14:30
  */
 import { RouteRecordRaw } from 'vue-router'
 
@@ -22,14 +22,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "registry" */ '@/views/user/registry.vue')
   },
   {
-    path: '/user/homeview',
+    path: '/homeview',
     name: 'homeview',
-    component: () => import(/* webpackChunkName: "homeview" */ '@/views/user/HomeView.vue')
-  },
-  {
-    path: '/home',
-    name: 'Home',
-    component: () => import(/* webpackChunkName: "Home" */ '@/views/home/index.vue'),
+    component: () => import(/* webpackChunkName: "homeview" */ '@/views/HomeView.vue'),
     children: [
       {
         path: '/home/index',

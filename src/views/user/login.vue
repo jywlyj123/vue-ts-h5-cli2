@@ -41,7 +41,7 @@ export default defineComponent({
           message: result.msg,
           onClose() {
             router.replace({
-              path: '/user/homeview'
+              path: '/homeview'
             })
           }
         })
