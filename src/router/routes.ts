@@ -2,7 +2,7 @@
  * @Author: Awei
  * @Date: 2023-06-29 08:48:22
  * @Last Modified by: Awei
- * @Last Modified time: 2023-07-01 08:01:05
+ * @Last Modified time: 2023-07-02 20:25:26
  */
 import { RouteRecordRaw } from 'vue-router'
 
@@ -22,9 +22,36 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "registry" */ '@/views/user/registry.vue')
   },
   {
+    path: '/user/homeview',
+    name: 'homeview',
+    component: () => import(/* webpackChunkName: "homeview" */ '@/views/user/HomeView.vue')
+  },
+  {
     path: '/home',
     name: 'Home',
-    component: () => import(/* webpackChunkName: "Home" */ '@/views/home/index.vue')
+    component: () => import(/* webpackChunkName: "Home" */ '@/views/home/index.vue'),
+    children: [
+      {
+        path: '/home/index',
+        name: 'index',
+        component: () => import(/* webpackChunkName: "index" */ '@/views/home/index.vue')
+      },
+      {
+        path: '/home/classfiy',
+        name: 'classfiy',
+        component: () => import(/* webpackChunkName: "classfiy" */ '@/views/home/Classfiy.vue')
+      },
+      {
+        path: '/home/cart',
+        name: 'cart',
+        component: () => import(/* webpackChunkName: "cart" */ '@/views/home/Cart.vue')
+      },
+      {
+        path: '/home/my',
+        name: 'my',
+        component: () => import(/* webpackChunkName: "my" */ '@/views/home/My.vue')
+      }
+    ]
   },
   {
     path: '/404',
