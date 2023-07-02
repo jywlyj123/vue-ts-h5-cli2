@@ -1,8 +1,8 @@
 /*
  * @Author: Awei
  * @Date: 2023-06-30 19:18:03
- * @Last Modified by:   Awei
- * @Last Modified time: 2023-06-30 19:18:03
+ * @Last Modified by: Awei
+ * @Last Modified time: 2023-07-01 08:29:24
  */
 
 import axios, { AxiosInstance, AxiosError, AxiosResponse } from 'axios'
@@ -14,10 +14,11 @@ const request: AxiosInstance = axios.create({
 
 request.interceptors.request.use(
   (config: any) => {
-    const Authorization = localStorage.getItem('token')
     config.headers['Content-Type'] = 'application/json'
-    config.headers['Authorization'] = `${Authorization}`
-    config.headers['Platform'] = 'mobile'
+    if (localStorage.getItem('TOKEN')) {
+      const Authorization = localStorage.getItem('TOKEN')
+      config.headers['Authorization'] = `${Authorization}`
+    }
     return config
   },
   (error: AxiosError) => {
@@ -39,6 +40,12 @@ request.interceptors.response.use(
             const pathUrl = location.href.split('/')
             window.location.href = `/user/login?redirect=${encodeURIComponent('/' + pathUrl[3])}`
           }
+        })
+        break
+      case 406:
+        showToast({
+          type: 'fail',
+          message: '暂无数据！'
         })
         break
       case 500:
