@@ -2,37 +2,49 @@
  * @Author: Awei
  * @Date: 2023-07-03 19:16:34
  * @Last Modified by: Awei
- * @Last Modified time: 2023-07-03 19:24:11
+ * @Last Modified time: 2023-07-03 20:20:06
  */
 import { request } from '@/utils/request'
-import { API_HOME_CONFIG } from '@/config/api/home'
+import { API_CATEGARY_CONFIG } from '@/config/api/category'
 import { AxiosError } from 'axios'
-
-interface HomeSeriviceInterface {
-  getCarouselList: (params: { type?: number; pagesize?: number; pagecount?: number }) => Promise<any>
-  getGoodsList: (params: { pagesize?: number; pagecount?: number }) => Promise<any>
+import { CategaryMangeType } from '@/interface/model/category'
+interface UseCategarySeriviceInterface {
+  firstCategaryList(): Promise<any>
+  secondCategaryList: (params: { t_type: number }) => Promise<any>
+  getProductList(params: CategaryMangeType.CategaryProductInterface): Promise<any>
 }
 
-export const UseHomeSerivice = (): HomeSeriviceInterface => {
-  class HomeSerivice {
-    // 轮播图
-    getCarouselList(params: { type?: number; pagesize?: number; pagecount?: number }) {
-      const url = API_HOME_CONFIG.getCarouselList()
+export const UseHomeSerivice = (): UseCategarySeriviceInterface => {
+  class CategarySerivice {
+    // 一级列表
+    public firstCategaryList() {
+      const url = API_CATEGARY_CONFIG.firstCategaryList()
       return request
-        .get(url, { params })
-        .then(({ data }: any) => {
+        .get(url)
+        .then(({ data }) => {
           return Promise.resolve(data)
         })
         .catch((error: AxiosError) => {
           return Promise.reject(error)
         })
     }
-    // 商品列表
-    getGoodsList(params: { pagesize?: number; pagecount?: number }) {
-      const url = API_HOME_CONFIG.getGoodsList()
+    // 二级列表
+    public secondCategaryList(params: { t_type: number }) {
+      const url = API_CATEGARY_CONFIG.secondCategaryList()
       return request
         .get(url, { params })
-        .then(({ data }: any) => {
+        .then(({ data }) => {
+          return Promise.resolve(data)
+        })
+        .catch((error: AxiosError) => {
+          return Promise.reject(error)
+        })
+    }
+    public getProductList(params: CategaryMangeType.CategaryProductInterface) {
+      const url = API_CATEGARY_CONFIG.getProductList()
+      return request
+        .get(url, { params })
+        .then(({ data }) => {
           return Promise.resolve(data)
         })
         .catch((error: AxiosError) => {
@@ -40,5 +52,5 @@ export const UseHomeSerivice = (): HomeSeriviceInterface => {
         })
     }
   }
-  return new HomeSerivice()
+  return new CategarySerivice()
 }
