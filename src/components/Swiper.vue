@@ -8,12 +8,12 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue'
-import { useUserSerivice } from '@/api/home'
+import { UseHomeSerivice } from '@/api/home'
 import { HomeManageType } from '@/interface/model/home'
 export default defineComponent({
   name: 'SwiperView',
   setup() {
-    const homeserivice = useUserSerivice()
+    const homeserivice = UseHomeSerivice()
     const state = {
       loading: ref(false),
       finished: ref(false),

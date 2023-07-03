@@ -13,13 +13,13 @@ interface HomeSeriviceInterface {
   getGoodsList: (params: { pagesize?: number; pagecount?: number }) => Promise<any>
 }
 
-export const useUserSerivice = (): HomeSeriviceInterface => {
+export const UseHomeSerivice = (): HomeSeriviceInterface => {
   class HomeSerivice {
     // 轮播图
     getCarouselList(params: { type?: number; pagesize?: number; pagecount?: number }) {
       const url = API_HOME_CONFIG.getCarouselList()
       return request
-        .post(url, params)
+        .get(url, { params })
         .then(({ data }: any) => {
           return Promise.resolve(data)
         })
