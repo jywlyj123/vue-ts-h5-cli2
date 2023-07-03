@@ -6,8 +6,8 @@
  */
 export namespace UserManageType {
   export class UserLoginFromState {
-    username: string = 'awei'
-    password: string = '123'
+    username: string = 'zhiqian'
+    password: string = '123456'
   }
 
   export class UserRegistryFromState {

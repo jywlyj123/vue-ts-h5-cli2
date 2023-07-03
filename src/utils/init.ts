@@ -5,7 +5,7 @@
  * @Last Modified time: 2023-07-02 21:29:17
  */
 import 'vant/lib/index.css'
-import { Form, Field, CellGroup, NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Image as VanImage, Search } from 'vant'
+import { Form, Field, CellGroup, NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Image as VanImage, Search, Sidebar, SidebarItem, Tab, Tabs } from 'vant'
 
 export const initVant = function (app: any) {
   app.use(Form)
@@ -18,4 +18,8 @@ export const initVant = function (app: any) {
   app.use(SwipeItem)
   app.use(VanImage)
   app.use(Search)
+  app.use(Sidebar)
+  app.use(SidebarItem)
+  app.use(Tab)
+  app.use(Tabs)
 }

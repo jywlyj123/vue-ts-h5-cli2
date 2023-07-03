@@ -38,7 +38,7 @@ request.interceptors.response.use(
           message: '暂无数据！',
           onClose() {
             const pathUrl = location.href.split('/')
-            // window.location.href = `/user/login?redirect=${encodeURIComponent('/' + pathUrl[3])}`
+            window.location.href = `/user/login?redirect=${encodeURIComponent('/' + pathUrl[3])}`
           }
         })
         break

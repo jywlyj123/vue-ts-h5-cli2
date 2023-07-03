@@ -22,16 +22,6 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "registry" */ '@/views/user/registry.vue')
   },
   {
-    path: '/user/search',
-    name: 'search',
-    component: () => import(/* webpackChunkName: "search" */ '@/views/user/Search.vue')
-  },
-  {
-    path: '/user/detail',
-    name: 'detail',
-    component: () => import(/* webpackChunkName: "detail" */ '@/views/user/Detail.vue')
-  },
-  {
     path: '/homeview',
     name: 'homeview',
     component: () => import(/* webpackChunkName: "homeview" */ '@/views/HomeView.vue'),
@@ -57,6 +47,16 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "my" */ '@/views/home/My.vue')
       }
     ]
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import(/* webpackChunkName: "search" */ '@/views/Search.vue')
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: () => import(/* webpackChunkName: "detail" */ '@/views/Detail.vue')
   },
   {
     path: '/404',
