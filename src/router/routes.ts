@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/home/index',
         name: 'index',
-        component: () => import(/* webpackChunkName: "index" */ '@/views/home/index.vue')
+        component: () => import(/* webpackChunkName: "index" */ '@/views/home/Index.vue')
       },
       {
         path: '/home/classfiy',

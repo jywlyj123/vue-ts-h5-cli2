@@ -2,10 +2,10 @@
  * @Author: Awei
  * @Date: 2023-06-30 19:23:29
  * @Last Modified by: Awei
- * @Last Modified time: 2023-07-02 20:39:31
+ * @Last Modified time: 2023-07-02 21:29:17
  */
 import 'vant/lib/index.css'
-import { Form, Field, CellGroup, NavBar, Tabbar, TabbarItem } from 'vant'
+import { Form, Field, CellGroup, NavBar, Tabbar, TabbarItem, Swipe, SwipeItem, Image as VanImage } from 'vant'
 
 export const initVant = function (app: any) {
   app.use(Form)
@@ -14,4 +14,7 @@ export const initVant = function (app: any) {
   app.use(NavBar)
   app.use(Tabbar)
   app.use(TabbarItem)
+  app.use(Swipe)
+  app.use(SwipeItem)
+  app.use(VanImage)
 }
